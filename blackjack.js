@@ -12,211 +12,211 @@ let newModal = document.querySelector('#newModal');
 
 const deck = [
 	{
-		cardView: '../Root/img/acespades.png',
+		cardView: './img/acespades.png',
 		value: 11
 	},
 	{
-		cardView: '../Root/img/twospades.png',
+		cardView: './img/twospades.png',
 		value: 2
 	},
 	{
-		cardView: '../Root/img/threespades.png',
+		cardView: './img/threespades.png',
 		value: 3
 	},
 	{
-		cardView: '../Root/img/fourspades.png',
+		cardView: './img/fourspades.png',
 		value: 4
 	},
 	{
-		cardView: '../Root/img/fivespades.png',
+		cardView: './img/fivespades.png',
 		value: 5
 	},
 	{
-		cardView: '../Root/img/sixspades.png',
+		cardView: './img/sixspades.png',
 		value: 6
 	},
 	{
-		cardView: '../Root/img/sevenspades.png',
+		cardView: './img/sevenspades.png',
 		value: 7
 	},
 	{
-		cardView: '../Root/img/eightspades.png',
+		cardView: './img/eightspades.png',
 		value: 8
 	},
 	{
-		cardView: '../Root/img/ninespades.png',
+		cardView: './img/ninespades.png',
 		value: 9
 	},
 	{
-		cardView: '../Root/img/tenspades.png',
+		cardView: './img/tenspades.png',
 		value: 10
 	},
 	{
-		cardView: '../Root/img/jackspades.png',
+		cardView: './img/jackspades.png',
 		value: 10
 	},
 	{
-		cardView: '../Root/img/queenspades.png',
+		cardView: './img/queenspades.png',
 		value: 10
 	},
 	{
-		cardView: '../Root/img/kingspades.png',
+		cardView: './img/kingspades.png',
 		value: 10
 	},
 	{
-		cardView: '../Root/img/acehearts.png',
+		cardView: './img/acehearts.png',
 		value: 11
 	},
 	{
-		cardView: '../Root/img/twohearts.png',
+		cardView: './img/twohearts.png',
 		value: 2
 	},
 	{
-		cardView: '../Root/img/threehearts.png',
+		cardView: './img/threehearts.png',
 		value: 3
 	},
 	{
-		cardView: '../Root/img/fourhearts.png',
+		cardView: './img/fourhearts.png',
 		value: 4
 	},
 	{
-		cardView: '../Root/img/fivehearts.png',
+		cardView: './img/fivehearts.png',
 		value: 5
 	},
 	{
-		cardView: '../Root/img/sixhearts.png',
+		cardView: './img/sixhearts.png',
 		value: 6
 	},
 	{
-		cardView: '../Root/img/sevenhearts.png',
+		cardView: './img/sevenhearts.png',
 		value: 7
 	},
 	{
-		cardView: '../Root/img/eighthearts.png',
+		cardView: './img/eighthearts.png',
 		value: 8
 	},
 	{
-		cardView: '../Root/img/ninehearts.png',
+		cardView: './img/ninehearts.png',
 		value: 9
 	},
 	{
-		cardView: '../Root/img/tenhearts.png',
+		cardView: './img/tenhearts.png',
 		value: 10
 	},
 	{
-		cardView: '../Root/img/jackhearts.png',
+		cardView: './img/jackhearts.png',
 		value: 10
 	},
 	{
-		cardView: '../Root/img/queenhearts.png',
+		cardView: './img/queenhearts.png',
 		value: 10
 	},
 	{
-		cardView: '../Root/img/kinghearts.png',
+		cardView: './img/kinghearts.png',
 		value: 10
 	},
 	{
-		cardView: '../Root/img/aceclubs.png',
+		cardView: './img/aceclubs.png',
 		value: 11
 	},
 	{
-		cardView: '../Root/img/twoclubs.png',
+		cardView: './img/twoclubs.png',
 		value: 2
 	},
 	{
-		cardView: '../Root/img/threeclubs.png',
+		cardView: './img/threeclubs.png',
 		value: 3
 	},
 	{
-		cardView: '../Root/img/fourclubs.png',
+		cardView: './img/fourclubs.png',
 		value: 4
 	},
 	{
-		cardView: '../Root/img/fiveclubs.png',
+		cardView: './img/fiveclubs.png',
 		value: 5
 	},
 	{
-		cardView: '../Root/img/sixclubs.png',
+		cardView: './img/sixclubs.png',
 		value: 6
 	},
 	{
-		cardView: '../Root/img/sevenclubs.png',
+		cardView: './img/sevenclubs.png',
 		value: 7
 	},
 	{
-		cardView: '../Root/img/eightclubs.png',
+		cardView: './img/eightclubs.png',
 		value: 8
 	},
 	{
-		cardView: '../Root/img/nineclubs.png',
+		cardView: './img/nineclubs.png',
 		value: 9
 	},
 	{
-		cardView: '../Root/img/tenclubs.png',
+		cardView: './img/tenclubs.png',
 		value: 10
 	},
 	{
-		cardView: '../Root/img/jackclubs.png',
+		cardView: './img/jackclubs.png',
 		value: 10
 	},
 	{
-		cardView: '../Root/img/queenclubs.png',
+		cardView: './img/queenclubs.png',
 		value: 10
 	},
 	{
-		cardView: '../Root/img/kingclubs.png',
+		cardView: './img/kingclubs.png',
 		value: 10
 	},
 	{
-		cardView: '../Root/img/acediamonds.png',
+		cardView: './img/acediamonds.png',
 		value: 11
 	},
 	{
-		cardView: '../Root/img/twodiamonds.png',
+		cardView: './img/twodiamonds.png',
 		value: 2
 	},
 	{
-		cardView: '../Root/img/threediamonds.png',
+		cardView: './img/threediamonds.png',
 		value: 3
 	},
 	{
-		cardView: '../Root/img/fourdiamonds.png',
+		cardView: './img/fourdiamonds.png',
 		value: 4
 	},
 	{
-		cardView: '../Root/img/fivediamonds.png',
+		cardView: './img/fivediamonds.png',
 		value: 5
 	},
 	{
-		cardView: '../Root/img/sixdiamonds.png',
+		cardView: './img/sixdiamonds.png',
 		value: 6
 	},
 	{
-		cardView: '../Root/img/sevendiamonds.png',
+		cardView: './img/sevendiamonds.png',
 		value: 7
 	},
 	{
-		cardView: '../Root/img/eightdiamonds.png',
+		cardView: './img/eightdiamonds.png',
 		value: 8
 	},
 	{
-		cardView: '../Root/img/ninediamonds.png',
+		cardView: './img/ninediamonds.png',
 		value: 9
 	},
 	{
-		cardView: '../Root/img/tendiamonds.png',
+		cardView: './img/tendiamonds.png',
 		value: 10
 	},
 	{
-		cardView: '../Root/img/jackdiamonds.png',
+		cardView: './img/jackdiamonds.png',
 		value: 10
 	},
 	{
-		cardView: '../Root/img/queendiamonds.png',
+		cardView: './img/queendiamonds.png',
 		value: 10
 	},
 	{
-		cardView: '../Root/img/kingdiamonds.png',
+		cardView: './img/kingdiamonds.png',
 		value: 10
 	}
 ];
