@@ -8,7 +8,8 @@ let split = document.querySelector('#split');
 let splitHit = document.querySelector('#splitHit');
 let fold = document.querySelector('#fold');
 let newGame = document.querySelector('#newGame');
-let newModal = document.querySelector('#newModal');
+let newModal = document.querySelector('.modal');
+let modalnote = document.querySelector('#modalnote');
 
 const deck = [
 	{
@@ -323,6 +324,10 @@ removeChildDealer = () => {
 	}
 };
 
+setTimeout(() => {
+	newModal.style.display = 'none';
+}, 2000);
+
 newGame.addEventListener('click', () => {
 	gameLive = true;
 	shuffle();
@@ -381,12 +386,18 @@ hit.addEventListener('click', () => {
 		hit.disabled = true;
 		stay.disabled = true;
 	}
+
 	if (total > 21) {
 		console.log('busted');
 		hit.disabled = true;
 		stay.disabled = true;
 		fold.disabled = false;
 		newGame.disabled = true;
+		newModal.style.display = 'block';
+		modalnote.innerText = 'Busted';
+		setTimeout(() => {
+			newModal.style.display = 'none';
+		}, 2000);
 	}
 });
 
@@ -433,5 +444,4 @@ fold.addEventListener('click', () => {
 	stay.disabled = true;
 	fold.disabled = true;
 	newGame.disabled = false;
-	newModal.style.display = 'block';
 });
