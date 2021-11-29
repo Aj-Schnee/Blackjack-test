@@ -348,6 +348,7 @@ newGame.addEventListener('click', () => {
 	playerTotal.appendChild(newP);
 	dealerTotal.appendChild(newD);
 	total = Number(newP.innerText);
+	//need to fix doble Ace math
 	// 21 win
 	if (total === 21) {
 		console.log('win 21');
