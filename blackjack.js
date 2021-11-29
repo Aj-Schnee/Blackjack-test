@@ -4,8 +4,8 @@ let player = document.querySelector('#playerContainer');
 let playerTotal = document.querySelector('#playerTotal');
 let hit = document.querySelector('#hit');
 let stay = document.querySelector('#stay');
-let split = document.querySelector('#split');
-let splitHit = document.querySelector('#splitHit');
+// let split = document.querySelector('#split');
+// let splitHit = document.querySelector('#splitHit');
 let fold = document.querySelector('#fold');
 let newGame = document.querySelector('#newGame');
 let newModal = document.querySelector('.modal');
@@ -237,8 +237,8 @@ let splitShow = [];
 hit.disabled = true;
 stay.disabled = true;
 fold.disabled = true;
-split.disabled = true;
-splitHit.disabled = true;
+// split.disabled = true;
+// splitHit.disabled = true;
 
 randomNum = (arr) => {
 	const a = Math.floor(Math.random() * arr.length);
@@ -355,23 +355,12 @@ newGame.addEventListener('click', () => {
 		fold.disabled = false;
 		hit.disabled = true;
 		stay.disabled = true;
-		split.disabled = true;
+		newModal.style.display = 'block';
+		modalnote.innerText = 'You hit 21, You win!!!';
+		setTimeout(() => {
+			newModal.style.display = 'none';
+		}, 2000);
 	}
-	// split
-	if (playerShow[0][0].value === playerShow[1][0].value) {
-		split.disabled = false;
-		player.appendChild(newSplit);
-		newSplit.innerText = 'Would you like to split?';
-		split.addEventListener('click', () => {
-			let a = playerShow.pop();
-			splitShow.push(a);
-			console.log(a, splitShow);
-			split.disabled = true;
-			splitHit.disabled = false;
-		});
-		console.log('split');
-	}
-	// dobledown
 });
 
 hit.addEventListener('click', () => {
@@ -385,8 +374,12 @@ hit.addEventListener('click', () => {
 		fold.disabled = true;
 		hit.disabled = true;
 		stay.disabled = true;
+		newModal.style.display = 'block';
+		modalnote.innerText = 'You hit 21, You win!!!';
+		setTimeout(() => {
+			newModal.style.display = 'none';
+		}, 2000);
 	}
-
 	if (total > 21) {
 		console.log('busted');
 		hit.disabled = true;
@@ -400,32 +393,46 @@ hit.addEventListener('click', () => {
 		}, 2000);
 	}
 });
-
 stay.addEventListener('click', () => {
 	total = Number(newP.innerText);
-	if (!splitHit.disabled) {
-		splitShow.push(deck[randomNum(deck)].value);
-		newSplit.innerText = splitShow;
-		if (total === 21) {
-			console.log('win 21 with second split card');
-			newGame.disabled = false;
-			fold.disabled = true;
-			hit.disabled = true;
-			stay.disabled = true;
-			split.disabled = true;
-		}
-		if (total > 21) {
-			console.log('busted');
-		}
+	if (total === 21) {
+		console.log('win 21 with  split card');
+		newGame.disabled = false;
+		fold.disabled = true;
+		hit.disabled = true;
+		stay.disabled = true;
+		split.disabled = true;
+	}
+	if (total > 21) {
+		console.log('busted');
+		hit.disabled = true;
+		stay.disabled = true;
+		fold.disabled = false;
+		newGame.disabled = true;
+		newModal.style.display = 'block';
+		modalnote.innerText = 'Busted';
+		setTimeout(() => {
+			newModal.style.display = 'none';
+		}, 2000);
 	} else {
 		hit.disabled = true;
 		stay.disabled = true;
 		dealerCard();
 		if (total > dealerT || dealerT >= 22) {
+			newModal.style.display = 'block';
+			modalnote.innerText = 'You win!!';
+			setTimeout(() => {
+				newModal.style.display = 'none';
+			}, 2000);
 			console.log(`player : ${total}, dealer: ${dealerT}`, 'nice player win');
 		}
 		if ((dealerT >= total && dealerT < 22) || dealerT === 21) {
-			console.log(`player : ${total}, dealer: ${dealerT}`, 'house wins you suck');
+			newModal.style.display = 'block';
+			modalnote.innerText = 'House wins';
+			setTimeout(() => {
+				newModal.style.display = 'none';
+			}, 2000);
+			console.log(`player : ${total}, dealer: ${dealerT}`, 'house wins');
 		}
 	}
 	hit.disabled = true;
