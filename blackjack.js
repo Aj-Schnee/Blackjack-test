@@ -370,8 +370,8 @@ hit.addEventListener('click', () => {
 	total = Number(newP.innerText);
 	if (total === 21) {
 		console.log('win 21 with hitting');
-		newGame.disabled = false;
-		fold.disabled = true;
+		newGame.disabled = true;
+		fold.disabled = false;
 		hit.disabled = true;
 		stay.disabled = true;
 		newModal.style.display = 'block';
