@@ -327,7 +327,7 @@ removeChildDealer = () => {
 setTimeout(() => {
 	newModal.style.display = 'none';
 }, 2000);
-
+// new game button
 newGame.addEventListener('click', () => {
 	gameLive = true;
 	shuffle();
@@ -363,7 +363,7 @@ newGame.addEventListener('click', () => {
 		}, 2000);
 	}
 });
-
+// hit button
 hit.addEventListener('click', () => {
 	playerHand();
 	newImgPlayer();
@@ -382,18 +382,21 @@ hit.addEventListener('click', () => {
 		}, 2000);
 	}
 	if (total > 21) {
-		console.log('busted');
+		console.log(ScoreShowResult.lose);
 		hit.disabled = true;
 		stay.disabled = true;
 		fold.disabled = false;
 		newGame.disabled = true;
 		newModal.style.display = 'block';
-		modalnote.innerText = 'Busted';
+		modalnote.innerText = newLetter;
+		modalnote.classList.toggle('busted');
 		setTimeout(() => {
+			modalnote.classList.toggle('busted');
 			newModal.style.display = 'none';
-		}, 2000);
+		}, 4000);
 	}
 });
+// stay button
 stay.addEventListener('click', () => {
 	total = Number(newP.innerText);
 	if (total === 21) {
@@ -440,7 +443,7 @@ stay.addEventListener('click', () => {
 	stay.disabled = true;
 	fold.disabled = false;
 });
-
+// fold button
 fold.addEventListener('click', () => {
 	removeChildDealer();
 	removeChildPlayer();
@@ -453,3 +456,10 @@ fold.addEventListener('click', () => {
 	fold.disabled = true;
 	newGame.disabled = false;
 });
+
+const ScoreShowResult = {
+	win: 'You Win!',
+	lose: 'Busted'
+};
+
+const newLetter = ScoreShowResult.lose[0];

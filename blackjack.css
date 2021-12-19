@@ -5,6 +5,31 @@ html {
 	width: 100%;
 }
 
+.busted {
+	transform: rotate(0deg);
+	animation: rotate 4s;
+	animation-timing-function: ease-out;
+}
+@keyframes rotate {
+	0% {
+		transform: rotate(0deg);
+	}
+	20% {
+		transform: rotate(235deg);
+	}
+	40% {
+		transform: rotate(165deg);
+	}
+	60% {
+		transform: rotate(200deg);
+	}
+	80% {
+		transform: rotate(165deg);
+	}
+	100% {
+		transform: rotate(180deg);
+	}
+}
 #maincontainer {
 	background: none;
 	display: flex;
@@ -13,6 +38,8 @@ html {
 }
 h1 {
 	color: red;
+	font-family: 'Permanent Marker', cursive;
+	font-size: 5rem;
 }
 .container {
 	margin: 2rem;
@@ -36,7 +63,7 @@ h1 {
 	background-color: transparent;
 	margin: 15% auto; /* 15% from the top and centered */
 	padding: 20px;
-	border: 1px solid #888;
+	/* border: 1px solid #888; */
 	width: 80%; /* Could be more or less, depending on screen size */
 	text-align: center;
 }
@@ -84,23 +111,11 @@ button {
 	color: rgb(233, 37, 37);
 }
 
-@media (min-width: 350px) and (min-height: 640px) {
-	#divBtn {
-		margin: 3rem;
-	}
-	img {
-		width: 4.5em;
-		height: 6.5em;
-		padding: 0.5em;
-	}
-}
 @media (min-width: 375px) and (min-height: 730px) {
 	#divBtn {
 		margin-top: 9rem;
 	}
 	button {
-		margin: 0.1rem;
-		border: 0.1rem groove black;
 		width: 5rem;
 		height: 2.2rem;
 		font-size: 0.8rem;
@@ -109,13 +124,6 @@ button {
 @media (min-width: 410px) and (min-height: 800px) {
 	#divBtn {
 		margin-top: 9rem;
-	}
-	button {
-		margin: 0.1rem;
-		border: 0.1rem groove black;
-		width: 5rem;
-		height: 2.2rem;
-		font-size: 0.8rem;
 	}
 }
 @media (min-width: 600px) and (min-height: 1000px) {
@@ -133,6 +141,27 @@ button {
 	}
 	button {
 		margin: 0.1rem;
+		border: 0.1rem groove black;
+		width: 6rem;
+		height: 4rem;
+		font-size: 1rem;
+	}
+}
+@media (min-width: 1000px) and (min-height: 1300px) {
+	.container {
+		margin: 8rem;
+	}
+	img {
+		width: 7.5em;
+		height: 10.5em;
+		padding: 0.5em;
+	}
+	#divBtn {
+		height: 1rem;
+		width: 45rem;
+	}
+	button {
+		margin: 0.3rem;
 		border: 0.1rem groove black;
 		width: 6rem;
 		height: 4rem;
