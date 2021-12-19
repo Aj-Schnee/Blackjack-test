@@ -1,13 +1,12 @@
-body {
-	background-color: rgb(99, 97, 97);
+html {
+	background: radial-gradient(green 45%, rgb(1, 99, 1), rgb(1, 43, 1));
+	background-repeat: no-repeat;
+	height: 100%;
+	width: 100%;
 }
 
 #maincontainer {
-	margin: 3rem;
-	height: 50rem;
-	background: radial-gradient(green 55%, black);
-	border: 1rem solid black;
-	border-radius: 50%;
+	background: none;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -16,10 +15,8 @@ h1 {
 	color: red;
 }
 .container {
-	margin: 3rem;
-	height: 10rem;
-	width: 60rem;
-	/* border: black solid 0.5em; */
+	margin: 2rem;
+	height: 7.5rem;
 }
 
 .modal {
@@ -39,29 +36,34 @@ h1 {
 	background-color: transparent;
 	margin: 15% auto; /* 15% from the top and centered */
 	padding: 20px;
-	/* border: 1px solid #888; */
+	border: 1px solid #888;
 	width: 80%; /* Could be more or less, depending on screen size */
 	text-align: center;
 }
 
-#dealerTotal,
+#dealerTotal {
+	height: 0.5em;
+}
 #playerTotal {
 	height: 0.5em;
 }
 #dealerContainer {
-	padding: 1em;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	padding: 0.5em;
 }
 #playerContainer {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
-	padding: 1em;
+	padding: 0.5em;
 }
 
 img {
-	width: 4.5em;
-	height: 6.5em;
-	padding: 1em;
+	width: 3.5em;
+	height: 5.5em;
+	padding: 0.5em;
 }
 button {
 	cursor: pointer;
@@ -71,13 +73,86 @@ button {
 	flex-direction: row;
 	justify-content: center;
 	padding: 0.5rem;
-	margin: 3rem;
+	margin: 0rem;
 	height: 2rem;
-	width: 20rem;
+	width: 15rem;
+}
+button {
+	margin: 0.1rem;
+	border: 0.1rem groove black;
+	border-radius: 10%;
+	color: rgb(233, 37, 37);
 }
 
-@media screen and (min-width: 480px) {
+@media (min-width: 350px) and (min-height: 640px) {
+	#divBtn {
+		margin: 3rem;
+	}
+	img {
+		width: 4.5em;
+		height: 6.5em;
+		padding: 0.5em;
+	}
+}
+@media (min-width: 375px) and (min-height: 730px) {
+	#divBtn {
+		margin-top: 9rem;
+	}
+	button {
+		margin: 0.1rem;
+		border: 0.1rem groove black;
+		width: 5rem;
+		height: 2.2rem;
+		font-size: 0.8rem;
+	}
+}
+@media (min-width: 410px) and (min-height: 800px) {
+	#divBtn {
+		margin-top: 9rem;
+	}
+	button {
+		margin: 0.1rem;
+		border: 0.1rem groove black;
+		width: 5rem;
+		height: 2.2rem;
+		font-size: 0.8rem;
+	}
+}
+@media (min-width: 600px) and (min-height: 1000px) {
+	#maincontainer {
+		margin: 8rem;
+	}
+	img {
+		width: 6.5em;
+		height: 8.5em;
+		padding: 0.5em;
+	}
+	#divBtn {
+		height: 12rem;
+		width: 45rem;
+	}
+	button {
+		margin: 0.1rem;
+		border: 0.1rem groove black;
+		width: 6rem;
+		height: 4rem;
+		font-size: 1rem;
+	}
+}
+@media (min-width: 1200px) and (min-height: 900px) {
+	html {
+		background: none;
+	}
 	body {
-		background-color: grey;
+		background: white;
+	}
+	#maincontainer {
+		margin: 3rem;
+		height: 50rem;
+		background: none;
+		background: radial-gradient(green 55%, black);
+		border: 1rem solid rgb(71, 14, 14);
+		border-radius: 50%;
+		box-shadow: 0rem 0rem 0.5rem rgb(95, 23, 23);
 	}
 }
