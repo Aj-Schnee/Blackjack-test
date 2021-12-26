@@ -4,8 +4,6 @@ let player = document.querySelector('#playerContainer');
 let playerTotal = document.querySelector('#playerTotal');
 let hit = document.querySelector('#hit');
 let stay = document.querySelector('#stay');
-// let split = document.querySelector('#split');
-// let splitHit = document.querySelector('#splitHit');
 let fold = document.querySelector('#fold');
 let newGame = document.querySelector('#newGame');
 let newModal = document.querySelector('.modal');
@@ -222,6 +220,12 @@ const deck = [
 	}
 ];
 
+const scoreShowResult = {
+	win: 'You Win!',
+	lose: 'Busted',
+	house: 'House Win!'
+};
+
 let newSplit = document.createElement('p');
 let newP = document.createElement('p');
 let newD = document.createElement('p');
@@ -237,8 +241,6 @@ let splitShow = [];
 hit.disabled = true;
 stay.disabled = true;
 fold.disabled = true;
-// split.disabled = true;
-// splitHit.disabled = true;
 
 randomNum = (arr) => {
 	const a = Math.floor(Math.random() * arr.length);
@@ -357,8 +359,10 @@ newGame.addEventListener('click', () => {
 		hit.disabled = true;
 		stay.disabled = true;
 		newModal.style.display = 'block';
-		modalnote.innerText = 'You hit 21, You win!!!';
+		modalnote.innerText = scoreShowResult.win;
+		modalnote.classList.toggle('busted');
 		setTimeout(() => {
+			modalnote.classList.toggle('busted');
 			newModal.style.display = 'none';
 		}, 2000);
 	}
@@ -376,24 +380,55 @@ hit.addEventListener('click', () => {
 		hit.disabled = true;
 		stay.disabled = true;
 		newModal.style.display = 'block';
-		modalnote.innerText = 'You hit 21, You win!!!';
-		setTimeout(() => {
-			newModal.style.display = 'none';
-		}, 2000);
-	}
-	if (total > 21) {
-		console.log(ScoreShowResult.lose);
-		hit.disabled = true;
-		stay.disabled = true;
-		fold.disabled = false;
-		newGame.disabled = true;
-		newModal.style.display = 'block';
-		modalnote.innerText = newLetter;
+		modalnote.innerText = scoreShowResult.win;
 		modalnote.classList.toggle('busted');
 		setTimeout(() => {
 			modalnote.classList.toggle('busted');
 			newModal.style.display = 'none';
-		}, 4000);
+		}, 2000);
+	}
+	if (total > 21) {
+		let newArray = [];
+		const test = (e) => e > 10;
+		for (let i = 0; i < playerShow.length; i++) {
+			newArray.push(playerShow[i][0].value);
+			// console.log(newArray);
+		}
+		if (newArray.includes(11)) {
+			console.log(newArray.findIndex(test));
+			newArray.splice(Number(newArray.findIndex(test)), 1, Number(1));
+			console.log(newArray);
+			total = Number(total) - 10;
+			newP.innerText = total;
+			if (total > 21) {
+				console.log(scoreShowResult.lose);
+				hit.disabled = true;
+				stay.disabled = true;
+				fold.disabled = false;
+				newGame.disabled = true;
+				newModal.style.display = 'block';
+				modalnote.innerText = scoreShowResult.lose;
+				modalnote.classList.toggle('busted');
+				setTimeout(() => {
+					modalnote.classList.toggle('busted');
+					newModal.style.display = 'none';
+				}, 4000);
+			}
+		}
+		if (total > 21) {
+			console.log(scoreShowResult.lose);
+			hit.disabled = true;
+			stay.disabled = true;
+			fold.disabled = false;
+			newGame.disabled = true;
+			newModal.style.display = 'block';
+			modalnote.innerText = scoreShowResult.lose;
+			modalnote.classList.toggle('busted');
+			setTimeout(() => {
+				modalnote.classList.toggle('busted');
+				newModal.style.display = 'none';
+			}, 4000);
+		}
 	}
 });
 // stay button
@@ -405,7 +440,6 @@ stay.addEventListener('click', () => {
 		fold.disabled = true;
 		hit.disabled = true;
 		stay.disabled = true;
-		split.disabled = true;
 	}
 	if (total > 21) {
 		console.log('busted');
@@ -424,16 +458,20 @@ stay.addEventListener('click', () => {
 		dealerCard();
 		if (total > dealerT || dealerT >= 22) {
 			newModal.style.display = 'block';
-			modalnote.innerText = 'You win!!';
+			modalnote.innerText = scoreShowResult.win;
+			modalnote.classList.toggle('busted');
 			setTimeout(() => {
+				modalnote.classList.toggle('busted');
 				newModal.style.display = 'none';
 			}, 2000);
 			console.log(`player : ${total}, dealer: ${dealerT}`, 'nice player win');
 		}
 		if ((dealerT >= total && dealerT < 22) || dealerT === 21) {
 			newModal.style.display = 'block';
-			modalnote.innerText = 'House wins';
+			modalnote.innerText = scoreShowResult.house;
+			modalnote.classList.toggle('busted');
 			setTimeout(() => {
+				modalnote.classList.toggle('busted');
 				newModal.style.display = 'none';
 			}, 2000);
 			console.log(`player : ${total}, dealer: ${dealerT}`, 'house wins');
@@ -456,10 +494,3 @@ fold.addEventListener('click', () => {
 	fold.disabled = true;
 	newGame.disabled = false;
 });
-
-const ScoreShowResult = {
-	win: 'You Win!',
-	lose: 'Busted'
-};
-
-const newLetter = ScoreShowResult.lose[0];
