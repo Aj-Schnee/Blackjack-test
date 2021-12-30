@@ -242,8 +242,11 @@ let playerShow = [];
 let splitShow = [];
 
 hit.disabled = true;
+hit.classList.toggle('invisiblebtn');
 stay.disabled = true;
+stay.classList.toggle('invisiblebtn');
 fold.disabled = true;
+fold.classList.toggle('invisiblebtn');
 
 // Game init "Welcome enjoy the game"
 setTimeout(() => {
@@ -286,14 +289,38 @@ dealerCard = () => {
 		if (dealerT > total) {
 			//house wins
 			timeOut(modalDecision[0], scoreShowResult.house);
+			newGame.disabled = false;
+			newGame.classList.toggle('invisiblebtn');
+			hit.disabled = true;
+			hit.classList.toggle('invisiblebtn');
+			stay.disabled = true;
+			stay.classList.toggle('invisiblebtn');
+			fold.disabled = true;
+			fold.classList.toggle('invisiblebtn');
 		}
 		if (dealerT === total) {
 			//Push
 			timeOut(modalDecision[0], scoreShowResult.pushGame);
+			newGame.disabled = false;
+			newGame.classList.toggle('invisiblebtn');
+			hit.disabled = true;
+			hit.classList.toggle('invisiblebtn');
+			stay.disabled = true;
+			stay.classList.toggle('invisiblebtn');
+			fold.disabled = true;
+			fold.classList.toggle('invisiblebtn');
 		}
 		if (total > dealerT) {
 			//player wins
 			timeOut(modalDecision[0], scoreShowResult.win);
+			newGame.disabled = false;
+			newGame.classList.toggle('invisiblebtn');
+			hit.disabled = true;
+			hit.classList.toggle('invisiblebtn');
+			stay.disabled = true;
+			stay.classList.toggle('invisiblebtn');
+			fold.disabled = true;
+			fold.classList.toggle('invisiblebtn');
 		}
 	} else if (dealerT > 21) {
 		let newArray = [];
@@ -318,9 +345,13 @@ dealerCard = () => {
 			if (dealerT > 21) {
 				console.log(scoreShowResult.houseB);
 				hit.disabled = true;
+				hit.classList.toggle('invisiblebtn');
 				stay.disabled = true;
+				stay.classList.toggle('invisiblebtn');
 				fold.disabled = false;
-				newGame.disabled = true;
+				fold.classList.toggle('invisiblebtn');
+				newGame.disabled = false;
+				newGame.classList.toggle('invisiblebtn');
 				timeOut(modalDecision[0], scoreShowResult.houseB);
 			} else {
 				dealerCard();
@@ -337,9 +368,13 @@ dealerCard = () => {
 		if (dealerT > 21) {
 			console.log(scoreShowResult.houseB);
 			hit.disabled = true;
+			hit.classList.toggle('invisiblebtn');
 			stay.disabled = true;
+			stay.classList.toggle('invisiblebtn');
 			fold.disabled = false;
-			newGame.disabled = true;
+			fold.classList.toggle('invisiblebtn');
+			newGame.disabled = false;
+			newGame.classList.toggle('invisiblebtn');
 			timeOut(modalDecision[0], scoreShowResult.houseB);
 		}
 	} else {
@@ -397,16 +432,29 @@ removeChildDealer = () => {
 		dealer.removeChild(dealer.firstChild);
 	}
 };
+deckReset = () => {
+	removeChildDealer();
+	removeChildPlayer();
+	dealerSum = 0;
+	playerSum = 0;
+	dealerTotal.innerText = '';
+	playerTotal.innerText = '';
+};
 // new game button
 newGame.addEventListener('click', () => {
+	deckReset();
 	gameLive = true;
 	shuffle();
 	dealerShow = [];
 	playerShow = [];
 	hit.disabled = false;
+	hit.classList.toggle('invisiblebtn');
 	stay.disabled = false;
+	stay.classList.toggle('invisiblebtn');
 	fold.disabled = false;
+	fold.classList.toggle('invisiblebtn');
 	newGame.disabled = true;
+	newGame.classList.toggle('invisiblebtn');
 	playerHand();
 	newImgPlayer();
 	playerHand();
@@ -420,10 +468,6 @@ newGame.addEventListener('click', () => {
 	total = Number(newP.innerText);
 	// 21 win
 	if (total === 21) {
-		newGame.disabled = true;
-		fold.disabled = false;
-		hit.disabled = true;
-		stay.disabled = true;
 		dealerCard();
 	}
 	// Doble Ace opener
@@ -449,11 +493,6 @@ hit.addEventListener('click', () => {
 	totalSumPlayer();
 	total = Number(newP.innerText);
 	if (total === 21) {
-		console.log('win 21 with hitting');
-		newGame.disabled = true;
-		fold.disabled = false;
-		hit.disabled = true;
-		stay.disabled = true;
 		dealerCard();
 	}
 	if (total > 21) {
@@ -491,9 +530,13 @@ hit.addEventListener('click', () => {
 					} else if (total > 21) {
 						console.log(scoreShowResult.lose);
 						hit.disabled = true;
+						hit.classList.toggle('invisiblebtn');
 						stay.disabled = true;
+						stay.classList.toggle('invisiblebtn');
 						fold.disabled = false;
-						newGame.disabled = true;
+						fold.classList.toggle('invisiblebtn');
+						newGame.disabled = false;
+						newGame.classList.toggle('invisiblebtn');
 						timeOut(modalDecision[0], scoreShowResult.lose);
 					}
 				}
@@ -502,18 +545,19 @@ hit.addEventListener('click', () => {
 		if (total > 21) {
 			console.log(scoreShowResult.lose);
 			hit.disabled = true;
+			hit.classList.toggle('invisiblebtn');
 			stay.disabled = true;
+			stay.classList.toggle('invisiblebtn');
 			fold.disabled = false;
-			newGame.disabled = true;
+			fold.classList.toggle('invisiblebtn');
+			newGame.disabled = false;
+			newGame.classList.toggle('invisiblebtn');
 			timeOut(modalDecision[0], scoreShowResult.lose);
 		}
 	}
 });
 // stay button
 stay.addEventListener('click', () => {
-	hit.disabled = true;
-	stay.disabled = true;
-	fold.disabled = false;
 	dealerCard();
 });
 // fold button
@@ -525,7 +569,11 @@ fold.addEventListener('click', () => {
 	dealerTotal.innerText = '';
 	playerTotal.innerText = '';
 	hit.disabled = true;
+	hit.classList.toggle('invisiblebtn');
 	stay.disabled = true;
+	stay.classList.toggle('invisiblebtn');
 	fold.disabled = true;
+	fold.classList.toggle('invisiblebtn');
 	newGame.disabled = false;
+	newGame.classList.toggle('invisiblebtn');
 });

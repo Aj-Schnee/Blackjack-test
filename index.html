@@ -11,35 +11,32 @@
     @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 </style>
 <body>
-<div id="newModal" class="modal">
-        <div class="modalContainer">
-            <h1 id="modalnote">Welcome!! Enjoy the game!!</h1>
+    <div id="newModal" class="modal">
+            <div class="modalContainer">
+                <h1 id="modalnote">Welcome!! Enjoy the game!!</h1>
+            </div>
+    </div>
+    <div id="maincontainer">
+        <h3>Dealer hand</h3>
+        <div id="dealerTotal"></div>
+        <div class="container">
+            <div id="dealerContainer"></div>
         </div>
-</div>
-<div id="maincontainer">
-    <h3>Dealer hand</h3>
-    <div id="dealerTotal"></div>
-    <div class="container">
-        <div id="dealerContainer"></div>
+        <h3>Player Hand</h3>
+        <div id="playerTotal"></div>
+        <div class="container">
+            <div id="playerContainer"></div>  
+        </div>
+        
+        <div id="divBtn">
+            <button id="hit">Hit</button>
+            <button id="stay">Stay</button>
+            <button id="fold">Fold</button>
+            <button id="newGame"> New Game</button>
+        </div>
     </div>
-    <h3>Player Hand</h3>
-    <div id="playerTotal"></div>
-    <div class="container">
-        <div id="playerContainer"></div>  
-    </div>
-    
-    <div id="divBtn">
-        <button id="hit">Hit</button>
-        <button id="stay">Stay</button>
-        <button id="fold">Fold</button>
-        <button id="newGame"> New Game</button>
-    </div>
-</div>
-
-
-
-
 <script src="blackjack.js"></script>
+
 </body>
 
 </html>

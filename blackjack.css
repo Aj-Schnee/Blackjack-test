@@ -1,10 +1,18 @@
 html {
-	background: radial-gradient(green 45%, rgb(1, 99, 1), rgb(1, 43, 1));
-	background-repeat: no-repeat;
 	height: 100%;
 	width: 100%;
 }
-
+body {
+	min-width: 100%;
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+	margin: auto;
+	background: radial-gradient(green, rgb(1, 99, 1), rgb(1, 43, 1));
+}
+/* #wrapper {
+	background-color: red;
+} */
 .busted {
 	transform: rotate(0deg);
 	animation: rotate 4s;
@@ -31,7 +39,7 @@ html {
 	}
 }
 #maincontainer {
-	background: none;
+	flex: 1;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -39,17 +47,17 @@ html {
 h1 {
 	color: white;
 	font-family: 'Permanent Marker', cursive;
-	font-size: 4.5rem;
-	text-shadow: 0.3rem 0.3rem 0.5rem black, 0rem 0rem 1rem white;
+	font-size: 4.5em;
+	text-shadow: 0.3em 0.3em 0.5em black, 0em 0em 1em white;
 }
 h3 {
 	color: red;
-	text-shadow: 0.09rem 0.1rem 0.9rem black;
-	margin: 2rem;
+	text-shadow: 0.09em 0.1em 0.9em black;
+	margin: 2em;
 }
 .container {
-	margin: 2rem;
-	height: 7.5rem;
+	margin: 2em;
+	height: 7.5em;
 }
 
 .modal {
@@ -97,45 +105,49 @@ img {
 	width: 3.5em;
 	height: 5.5em;
 	margin: 0.5em;
-	box-shadow: 0.01rem 0.01rem 1.5rem rgb(70, 69, 69);
+	box-shadow: 0.01em 0.01em 1.5em rgb(70, 69, 69);
 }
 #divBtn {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
-	padding: 0.5rem;
-	margin: 0rem;
-	height: 2rem;
-	width: 15rem;
+	padding: 0.5em;
+	margin: 0em;
+	height: 2em;
+	width: 15em;
 }
 button {
-	margin: 0.1rem;
-	border: 0.1rem groove black;
+	margin: 0.1em;
+	border: 0.1em groove black;
 	border-radius: 10%;
 	color: rgb(155, 56, 56);
 	cursor: pointer;
-	font-size: 0.9rem;
-	box-shadow: 0.01rem 0.01rem 1.5rem rgb(70, 69, 69);
-	text-shadow: 0.05rem 0.05rem 0.09rem rgb(63, 58, 58);
+	font-size: 0.9em;
+	box-shadow: 0.01em 0.01em 1.5em rgb(70, 69, 69);
+	text-shadow: 0.05em 0.05em 0.09em rgb(63, 58, 58);
 }
 
+.invisiblebtn {
+	display: none;
+}
+/* portrait media  */
 @media (min-width: 375px) and (min-height: 760px) {
 	#divBtn {
-		margin-top: 9rem;
+		margin-top: 9em;
 	}
 	button {
-		width: 5rem;
-		height: 2.2rem;
+		width: 5em;
+		height: 2.2em;
 	}
 }
 @media (min-width: 410px) and (min-height: 800px) {
 	#divBtn {
-		margin-top: 9rem;
+		margin-top: 9em;
 	}
 }
-@media (min-width: 600px) and (min-height: 1000px) {
+@media (min-width: 600px) and (min-height: 1000px) and (orientation: landscape) {
 	#maincontainer {
-		margin: 8rem;
+		margin: 8em;
 	}
 	img {
 		width: 6.5em;
@@ -143,19 +155,22 @@ button {
 		margin: 0.5em;
 	}
 	#divBtn {
-		height: 12rem;
-		width: 45rem;
+		height: 12em;
+		width: 45em;
 	}
 	button {
-		margin: 0.1rem;
-		border: 0.1rem groove black;
-		width: 6rem;
-		height: 4rem;
+		margin: 0.1em;
+		border: 0.1em groove black;
+		width: 6em;
+		height: 4em;
 	}
 }
-@media (min-width: 1000px) and (min-height: 1300px) {
+@media (min-width: 1000px) and (min-height: 850px) {
+	/* #maincontainer {
+		height: 50em;
+	} */
 	.container {
-		margin: 8rem;
+		margin: 8em;
 	}
 	img {
 		width: 7.5em;
@@ -163,35 +178,113 @@ button {
 		margin: 0.5em;
 	}
 	#divBtn {
-		height: 1rem;
-		width: 45rem;
+		height: 1em;
+		width: 45em;
 	}
 	button {
-		margin: 0.3rem;
-		border: 0.1rem groove black;
-		width: 6rem;
-		height: 4rem;
+		margin: 0.3em;
+		width: 6em;
+		height: 4em;
 	}
 }
 @media (min-width: 1200px) and (min-height: 900px) {
-	html {
-		background: none;
-	}
 	body {
-		background: white;
+		background: radial-gradient(rgb(175, 12, 12), black);
 	}
 	img {
-		width: 7rem;
-		height: 9.5rem;
-		margin: 0.5rem;
+		width: 7em;
+		height: 9.5em;
+		margin: 0.5em;
 	}
 	#maincontainer {
-		margin: 3rem;
-		height: 50rem;
-		background: none;
-		background: radial-gradient(green 55%, black);
-		border: 1rem solid rgb(71, 14, 14);
+		margin: 3em;
+		height: 50em;
+		background: radial-gradient(green, rgb(1, 99, 1), rgb(1, 43, 1));
+		border: 1.5em solid rgb(71, 14, 14);
 		border-radius: 50%;
-		box-shadow: 0rem 0rem 0.5rem rgb(95, 23, 23);
+		box-shadow: 0em 0em 2em rgb(202, 178, 178), 0em 0em 1em rgb(140, 187, 10);
 	}
 }
+
+/* Landscape media  */
+
+@media (min-width: 667px) and (min-height: 375px) {
+	body {
+		background: radial-gradient(rgb(175, 12, 12), black);
+	}
+	#maincontainer {
+		background: radial-gradient(green 55%, black);
+		border: .3em solid rgb(71, 14, 14);
+		border-radius: 55%;
+		box-shadow: 0em 0em 2em rgb(202, 178, 178), 0em 0em 1em rgb(140, 187, 10);
+	}
+
+	h3 {
+		margin: 0.7em;
+	}
+	.container {
+		margin: 0.5em;
+		height: 4.5em;
+	}
+	#divBtn {
+		height: auto;
+		width: auto;
+		margin-top: 1em;
+	}
+	button {
+		width: 5em;
+		height: 2.2em;
+	}
+	img {
+		width: 2.5em;
+		height: 3.5em;
+	}
+	#dealerContainer {
+		padding: 1em;
+	}
+	#playerContainer {
+		padding: 1em;
+	}
+}
+@media (min-width: 800px) and (min-height: 375px) {
+}
+/* @media (min-width: 1000px) and (min-height: 600px) {
+	#maincontainer {
+		margin: 8em;
+	}
+	img {
+		width: 6.5em;
+		height: 8.5em;
+		margin: 0.5em;
+	}
+	#divBtn {
+		height: 12em;
+		width: 45em;
+	}
+	button {
+		margin: 0.1em;
+		border: 0.1em groove black;
+		width: 6em;
+		height: 4em;
+	}
+} */
+/* @media (min-width: 1000px) and (min-height: 900px) {
+	.container {
+		margin: 8em;
+	}
+	img {
+		width: 7.5em;
+		height: 10.5em;
+		margin: 0.5em;
+	}
+	#divBtn {
+		height: 1em;
+		width: 45em;
+	}
+	button {
+		margin: 0.3em;
+		border: 0.1em groove black;
+		width: 6em;
+		height: 4em;
+	}
+} */
