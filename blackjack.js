@@ -562,12 +562,7 @@ stay.addEventListener('click', () => {
 });
 // fold button
 fold.addEventListener('click', () => {
-	removeChildDealer();
-	removeChildPlayer();
-	dealerSum = 0;
-	playerSum = 0;
-	dealerTotal.innerText = '';
-	playerTotal.innerText = '';
+	deckReset();
 	hit.disabled = true;
 	hit.classList.toggle('invisiblebtn');
 	stay.disabled = true;

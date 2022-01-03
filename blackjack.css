@@ -10,6 +10,9 @@ body {
 	margin: auto;
 	background: radial-gradient(green, rgb(1, 99, 1), rgb(1, 43, 1));
 }
+p {
+	margin: 0;
+}
 /* #wrapper {
 	background-color: red;
 } */
@@ -43,6 +46,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	margin: 1em;
 }
 h1 {
 	color: white;
@@ -83,10 +87,16 @@ h3 {
 }
 
 #dealerTotal {
-	height: 0.5em;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 1em;
 }
 #playerTotal {
-	height: 0.5em;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 1em;
 }
 #dealerContainer {
 	display: flex;
@@ -111,104 +121,43 @@ img {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
-	padding: 0.5em;
+	/* padding: 0.5em; */
 	margin: 0em;
 	height: 2em;
 	width: 15em;
 }
 button {
-	margin: 0.1em;
-	border: 0.1em groove black;
-	border-radius: 10%;
-	color: rgb(155, 56, 56);
+	/* margin: 0.1em; */
+	border: 0.2em groove #10564f;
+	border-radius: 0.3em;
+	color: #a00909;
 	cursor: pointer;
+	background: radial-gradient(#cae0cf, #d8e7e6, black 160%);
 	font-size: 0.9em;
-	box-shadow: 0.01em 0.01em 1.5em rgb(70, 69, 69);
-	text-shadow: 0.05em 0.05em 0.09em rgb(63, 58, 58);
+	font-family: 'Press Start 2P', cursive;
+	box-shadow: 0.01em 0.01em 0.5em white, 0.01em 0.01em 1em rgb(0, 0, 0);
+	text-shadow: 0.05em 0.05em 1em #05445e, 0.05em 0.05em 0.3em rgb(224, 69, 69);
 }
 
 .invisiblebtn {
 	display: none;
 }
 /* portrait media  */
-@media (min-width: 375px) and (min-height: 760px) {
-	#divBtn {
-		margin-top: 9em;
-	}
-	button {
-		width: 5em;
-		height: 2.2em;
-	}
-}
-@media (min-width: 410px) and (min-height: 800px) {
+@media (min-height: 760px) {
 	#divBtn {
 		margin-top: 9em;
 	}
 }
-@media (min-width: 600px) and (min-height: 1000px) and (orientation: landscape) {
-	#maincontainer {
-		margin: 8em;
-	}
-	img {
-		width: 6.5em;
-		height: 8.5em;
-		margin: 0.5em;
-	}
+@media (min-height: 900px) {
 	#divBtn {
-		height: 12em;
-		width: 45em;
-	}
-	button {
-		margin: 0.1em;
-		border: 0.1em groove black;
-		width: 6em;
-		height: 4em;
+		margin-top: 12em;
 	}
 }
-@media (min-width: 1000px) and (min-height: 850px) {
-	/* #maincontainer {
-		height: 50em;
-	} */
-	.container {
-		margin: 8em;
-	}
-	img {
-		width: 7.5em;
-		height: 10.5em;
-		margin: 0.5em;
-	}
-	#divBtn {
-		height: 1em;
-		width: 45em;
-	}
-	button {
-		margin: 0.3em;
-		width: 6em;
-		height: 4em;
-	}
-}
-@media (min-width: 1200px) and (min-height: 900px) {
-	body {
-		background: radial-gradient(rgb(175, 12, 12), black);
-	}
-	img {
-		width: 7em;
-		height: 9.5em;
-		margin: 0.5em;
-	}
-	#maincontainer {
-		margin: 3em;
-		height: 50em;
-		background: radial-gradient(green, rgb(1, 99, 1), rgb(1, 43, 1));
-		border: 1.5em solid rgb(71, 14, 14);
-		border-radius: 50%;
-		box-shadow: 0em 0em 2em rgb(202, 178, 178), 0em 0em 1em rgb(140, 187, 10);
-	}
-}
+/* ipad media needs work */
 
 /* Landscape media  */
 
-@media (min-width: 667px) and (min-height: 375px) {
+@media (min-width: 640px) and (min-height: 320px) {
 	body {
 		background: radial-gradient(rgb(175, 12, 12), black);
 	}
@@ -223,68 +172,42 @@ button {
 		margin: 0.7em;
 	}
 	.container {
-		margin: 0.5em;
-		height: 4.5em;
-	}
-	#divBtn {
-		height: auto;
-		width: auto;
-		margin-top: 1em;
-	}
-	button {
-		width: 5em;
-		height: 2.2em;
+		margin: 0.3em;
+		height: 4.7em;
 	}
 	img {
 		width: 2.5em;
 		height: 3.5em;
 	}
-	#dealerContainer {
-		padding: 1em;
-	}
-	#playerContainer {
-		padding: 1em;
-	}
 }
-@media (min-width: 800px) and (min-height: 375px) {
-}
-/* @media (min-width: 1000px) and (min-height: 600px) {
+
+/* Desktop media */
+@media (min-width: 1440px) {
+	body {
+		background: radial-gradient(rgb(175, 12, 12), black);
+	}
+	img {
+		width: 6.3em;
+		height: 9.5em;
+		margin: 0.5em;
+	}
 	#maincontainer {
-		margin: 8em;
+		background: radial-gradient(green, rgb(1, 99, 1), rgb(1, 43, 1) 80%);
+		border: 1em solid rgb(36, 13, 13);
+		border-radius: 50%;
+		box-shadow: 0em 0em 0.4em rgb(255, 255, 255), 0em 0em 0.8em rgb(199, 54, 54);
 	}
-	img {
-		width: 6.5em;
-		height: 8.5em;
-		margin: 0.5em;
-	}
-	#divBtn {
-		height: 12em;
-		width: 45em;
-	}
-	button {
-		margin: 0.1em;
-		border: 0.1em groove black;
-		width: 6em;
-		height: 4em;
-	}
-} */
-/* @media (min-width: 1000px) and (min-height: 900px) {
 	.container {
-		margin: 8em;
+		height: 9em;
+		margin: 1.5em;
 	}
-	img {
-		width: 7.5em;
-		height: 10.5em;
-		margin: 0.5em;
+	#dealerTotal {
+		margin: 1em;
 	}
-	#divBtn {
-		height: 1em;
-		width: 45em;
+	#playerTotal {
+		margin: 1em;
 	}
 	button {
-		margin: 0.3em;
-		border: 0.1em groove black;
-		width: 6em;
-		height: 4em;
+		font-size: 1.1em;
 	}
-} */
+}
