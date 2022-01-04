@@ -46,22 +46,22 @@ const deck = [
 		cardView: './img/ninespades.png',
 		value: 9
 	},
-	{
-		cardView: './img/tenspades.png',
-		value: 10
-	},
-	{
-		cardView: './img/jackspades.png',
-		value: 10
-	},
-	{
-		cardView: './img/queenspades.png',
-		value: 10
-	},
-	{
-		cardView: './img/kingspades.png',
-		value: 10
-	},
+	// {
+	// 	cardView: './img/tenspades.png',
+	// 	value: 10
+	// },
+	// {
+	// 	cardView: './img/jackspades.png',
+	// 	value: 10
+	// },
+	// {
+	// 	cardView: './img/queenspades.png',
+	// 	value: 10
+	// },
+	// {
+	// 	cardView: './img/kingspades.png',
+	// 	value: 10
+	// },
 	{
 		cardView: './img/acehearts.png',
 		value: 11
@@ -98,22 +98,22 @@ const deck = [
 		cardView: './img/ninehearts.png',
 		value: 9
 	},
-	{
-		cardView: './img/tenhearts.png',
-		value: 10
-	},
-	{
-		cardView: './img/jackhearts.png',
-		value: 10
-	},
-	{
-		cardView: './img/queenhearts.png',
-		value: 10
-	},
-	{
-		cardView: './img/kinghearts.png',
-		value: 10
-	},
+	// {
+	// 	cardView: './img/tenhearts.png',
+	// 	value: 10
+	// },
+	// {
+	// 	cardView: './img/jackhearts.png',
+	// 	value: 10
+	// },
+	// {
+	// 	cardView: './img/queenhearts.png',
+	// 	value: 10
+	// },
+	// {
+	// 	cardView: './img/kinghearts.png',
+	// 	value: 10
+	// },
 	{
 		cardView: './img/aceclubs.png',
 		value: 11
@@ -150,22 +150,22 @@ const deck = [
 		cardView: './img/nineclubs.png',
 		value: 9
 	},
-	{
-		cardView: './img/tenclubs.png',
-		value: 10
-	},
-	{
-		cardView: './img/jackclubs.png',
-		value: 10
-	},
-	{
-		cardView: './img/queenclubs.png',
-		value: 10
-	},
-	{
-		cardView: './img/kingclubs.png',
-		value: 10
-	},
+	// {
+	// 	cardView: './img/tenclubs.png',
+	// 	value: 10
+	// },
+	// {
+	// 	cardView: './img/jackclubs.png',
+	// 	value: 10
+	// },
+	// {
+	// 	cardView: './img/queenclubs.png',
+	// 	value: 10
+	// },
+	// {
+	// 	cardView: './img/kingclubs.png',
+	// 	value: 10
+	// },
 	{
 		cardView: './img/acediamonds.png',
 		value: 11
@@ -201,23 +201,23 @@ const deck = [
 	{
 		cardView: './img/ninediamonds.png',
 		value: 9
-	},
-	{
-		cardView: './img/tendiamonds.png',
-		value: 10
-	},
-	{
-		cardView: './img/jackdiamonds.png',
-		value: 10
-	},
-	{
-		cardView: './img/queendiamonds.png',
-		value: 10
-	},
-	{
-		cardView: './img/kingdiamonds.png',
-		value: 10
 	}
+	// {
+	// 	cardView: './img/tendiamonds.png',
+	// 	value: 10
+	// },
+	// {
+	// 	cardView: './img/jackdiamonds.png',
+	// 	value: 10
+	// },
+	// {
+	// 	cardView: './img/queendiamonds.png',
+	// 	value: 10
+	// },
+	// {
+	// 	cardView: './img/kingdiamonds.png',
+	// 	value: 10
+	// }
 ];
 
 const scoreShowResult = {
@@ -229,7 +229,6 @@ const scoreShowResult = {
 };
 const modalDecision = [ 'busted', 'winner' ];
 
-let newSplit = document.createElement('p');
 let newP = document.createElement('p');
 let newD = document.createElement('p');
 
@@ -283,7 +282,7 @@ dealerHand = () => {
 dealerCard = () => {
 	dealerHand();
 	newImgDealer();
-	totalSumDealer();
+	totalSumDealer(); //wrong value, after an Ace transform to a value = 1 (needs to be fix)
 	dealerT = Number(newD.innerText);
 	if (dealerT >= 17 && dealerT <= 21) {
 		if (dealerT > total) {
@@ -334,14 +333,6 @@ dealerCard = () => {
 			console.log(newArray);
 			dealerT = Number(dealerT) - 10;
 			newD.innerText = dealerT;
-			//needs test!
-			// if ((total = 21 && dealerT > 21)) {
-			// 	hit.disabled = true;
-			// 	stay.disabled = true;
-			// 	fold.disabled = false;
-			// 	newGame.disabled = true;
-			// 	timeOut(modalDecision[0], scoreShowResult.win);
-			// }
 			if (dealerT > 21) {
 				console.log(scoreShowResult.houseB);
 				hit.disabled = true;
@@ -357,14 +348,6 @@ dealerCard = () => {
 				dealerCard();
 			}
 		}
-		//needs test!
-		// if ((total = 21 && dealerT > 21)) {
-		// 	hit.disabled = true;
-		// 	stay.disabled = true;
-		// 	fold.disabled = false;
-		// 	newGame.disabled = true;
-		// 	timeOut(modalDecision[0], scoreShowResult.win);
-		// }
 		if (dealerT > 21) {
 			console.log(scoreShowResult.houseB);
 			hit.disabled = true;

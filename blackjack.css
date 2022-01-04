@@ -1,21 +1,15 @@
 html {
 	height: 100%;
 	width: 100%;
+	margin: 0;
 }
 body {
 	min-width: 100%;
 	min-height: 100%;
-	display: flex;
-	flex-direction: column;
-	margin: auto;
+	margin: 0;
 	background: radial-gradient(green, rgb(1, 99, 1), rgb(1, 43, 1));
 }
-p {
-	margin: 0;
-}
-/* #wrapper {
-	background-color: red;
-} */
+
 .busted {
 	transform: rotate(0deg);
 	animation: rotate 4s;
@@ -41,12 +35,12 @@ p {
 		transform: rotate(0deg);
 	}
 }
-#maincontainer {
-	flex: 1;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	margin: 1em;
+
+p {
+	font-size: 1.2em;
+	font-family: 'Press Start 2P', cursive;
+	color: white;
+	text-shadow: 0.1em 0.1em 0.5em black, 0em 0em 0.5em black;
 }
 h1 {
 	color: white;
@@ -55,79 +49,60 @@ h1 {
 	text-shadow: 0.3em 0.3em 0.5em black, 0em 0em 1em white;
 }
 h3 {
-	color: red;
-	text-shadow: 0.09em 0.1em 0.9em black;
-	margin: 2em;
-}
-.container {
-	margin: 2em;
-	height: 7.5em;
+	color: rgb(226, 6, 6);
+	font-family: 'Press Start 2P', cursive;
+	font-size: 1em;
+	text-shadow: 0.09em 0.1em 0.3em black;
 }
 
 .modal {
-	display: block; /* Hidden by default */
-	position: fixed; /* Stay in place */
-	z-index: 1; /* Sit on top */
+	display: block;
+	position: fixed;
+	z-index: 1;
 	left: 0;
 	top: 0;
-	width: 100%; /* Full width */
-	height: 100%; /* Full height */
-	overflow: auto; /* Enable scroll if needed */
-	background-color: rgb(0, 0, 0); /* Fallback color */
-	background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgb(0, 0, 0);
+	background-color: rgba(0, 0, 0, 0.4);
 }
 
 .modalContainer {
 	background-color: transparent;
-	margin: 15% auto; /* 15% from the top and centered */
+	margin: 15% auto;
 	padding: 20px;
-	/* border: 1px solid #888; */
-	width: 80%; /* Could be more or less, depending on screen size */
+	width: 80%;
 	text-align: center;
 }
 
-#dealerTotal {
+#maincontainer {
+	position: fixed;
+	height: 100%;
+	width: 100%;
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 	justify-content: center;
-	height: 1em;
 }
-#playerTotal {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	height: 1em;
+.container {
+	flex-grow: 2;
 }
-#dealerContainer {
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	padding: 0.5em;
+.handText {
+	padding: 1em;
+	flex-grow: 1;
 }
-#playerContainer {
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	padding: 0.5em;
-}
-
 img {
 	width: 3.5em;
 	height: 5.5em;
-	margin: 0.5em;
-	box-shadow: 0.01em 0.01em 1.5em rgb(70, 69, 69);
+	margin: 0.3em;
+	box-shadow: 0.01em 0.01em 1em rgb(37, 37, 37);
 }
 #divBtn {
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	/* padding: 0.5em; */
-	margin: 0em;
-	height: 2em;
-	width: 15em;
+	flex-grow: 2;
 }
 button {
-	/* margin: 0.1em; */
+	padding: 0.3em;
 	border: 0.2em groove #10564f;
 	border-radius: 0.3em;
 	color: #a00909;
@@ -143,48 +118,42 @@ button {
 	display: none;
 }
 /* portrait media  */
-@media (min-height: 760px) {
-	#divBtn {
-		margin-top: 9em;
-	}
-}
-@media (min-height: 900px) {
-	#divBtn {
-		margin-top: 12em;
-	}
-}
+
 /* ipad media needs work */
 
 /* Landscape media  */
 
-@media (min-width: 640px) and (min-height: 320px) {
+@media screen and (min-width: 640px) and (min-height: 320px) and (orientation: landscape) {
 	body {
 		background: radial-gradient(rgb(175, 12, 12), black);
 	}
 	#maincontainer {
-		background: radial-gradient(green 55%, black);
+		background: radial-gradient(green, rgb(1, 99, 1), rgb(1, 43, 1) 80%);
 		border: .3em solid rgb(71, 14, 14);
 		border-radius: 55%;
 		box-shadow: 0em 0em 2em rgb(202, 178, 178), 0em 0em 1em rgb(140, 187, 10);
 	}
-
-	h3 {
-		margin: 0.7em;
+	.handText {
+		padding: 0em;
 	}
-	.container {
+	h3 {
+		font-size: 0.65em;
 		margin: 0.3em;
-		height: 4.7em;
+	}
+	p {
+		font-size: 0.6em;
 	}
 	img {
-		width: 2.5em;
-		height: 3.5em;
+		width: 3.2em;
+		height: 5em;
 	}
 }
 
 /* Desktop media */
-@media (min-width: 1440px) {
+@media screen and (min-width: 1440px) {
 	body {
 		background: radial-gradient(rgb(175, 12, 12), black);
+		/* padding: 1em; */
 	}
 	img {
 		width: 6.3em;
@@ -192,22 +161,19 @@ button {
 		margin: 0.5em;
 	}
 	#maincontainer {
+		width: 97%;
+		height: 93%;
+		margin: 1em;
 		background: radial-gradient(green, rgb(1, 99, 1), rgb(1, 43, 1) 80%);
 		border: 1em solid rgb(36, 13, 13);
 		border-radius: 50%;
 		box-shadow: 0em 0em 0.4em rgb(255, 255, 255), 0em 0em 0.8em rgb(199, 54, 54);
 	}
-	.container {
-		height: 9em;
-		margin: 1.5em;
+	h3 {
+		font-size: 1em;
+		margin: 2em;
 	}
-	#dealerTotal {
-		margin: 1em;
-	}
-	#playerTotal {
-		margin: 1em;
-	}
-	button {
-		font-size: 1.1em;
+	p {
+		font-size: 1em;
 	}
 }
