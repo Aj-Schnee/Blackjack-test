@@ -46,22 +46,22 @@ const deck = [
 		cardView: './img/ninespades.png',
 		value: 9
 	},
-	// {
-	// 	cardView: './img/tenspades.png',
-	// 	value: 10
-	// },
-	// {
-	// 	cardView: './img/jackspades.png',
-	// 	value: 10
-	// },
-	// {
-	// 	cardView: './img/queenspades.png',
-	// 	value: 10
-	// },
-	// {
-	// 	cardView: './img/kingspades.png',
-	// 	value: 10
-	// },
+	{
+		cardView: './img/tenspades.png',
+		value: 10
+	},
+	{
+		cardView: './img/jackspades.png',
+		value: 10
+	},
+	{
+		cardView: './img/queenspades.png',
+		value: 10
+	},
+	{
+		cardView: './img/kingspades.png',
+		value: 10
+	},
 	{
 		cardView: './img/acehearts.png',
 		value: 11
@@ -98,22 +98,22 @@ const deck = [
 		cardView: './img/ninehearts.png',
 		value: 9
 	},
-	// {
-	// 	cardView: './img/tenhearts.png',
-	// 	value: 10
-	// },
-	// {
-	// 	cardView: './img/jackhearts.png',
-	// 	value: 10
-	// },
-	// {
-	// 	cardView: './img/queenhearts.png',
-	// 	value: 10
-	// },
-	// {
-	// 	cardView: './img/kinghearts.png',
-	// 	value: 10
-	// },
+	{
+		cardView: './img/tenhearts.png',
+		value: 10
+	},
+	{
+		cardView: './img/jackhearts.png',
+		value: 10
+	},
+	{
+		cardView: './img/queenhearts.png',
+		value: 10
+	},
+	{
+		cardView: './img/kinghearts.png',
+		value: 10
+	},
 	{
 		cardView: './img/aceclubs.png',
 		value: 11
@@ -150,22 +150,22 @@ const deck = [
 		cardView: './img/nineclubs.png',
 		value: 9
 	},
-	// {
-	// 	cardView: './img/tenclubs.png',
-	// 	value: 10
-	// },
-	// {
-	// 	cardView: './img/jackclubs.png',
-	// 	value: 10
-	// },
-	// {
-	// 	cardView: './img/queenclubs.png',
-	// 	value: 10
-	// },
-	// {
-	// 	cardView: './img/kingclubs.png',
-	// 	value: 10
-	// },
+	{
+		cardView: './img/tenclubs.png',
+		value: 10
+	},
+	{
+		cardView: './img/jackclubs.png',
+		value: 10
+	},
+	{
+		cardView: './img/queenclubs.png',
+		value: 10
+	},
+	{
+		cardView: './img/kingclubs.png',
+		value: 10
+	},
 	{
 		cardView: './img/acediamonds.png',
 		value: 11
@@ -201,23 +201,23 @@ const deck = [
 	{
 		cardView: './img/ninediamonds.png',
 		value: 9
+	},
+	{
+		cardView: './img/tendiamonds.png',
+		value: 10
+	},
+	{
+		cardView: './img/jackdiamonds.png',
+		value: 10
+	},
+	{
+		cardView: './img/queendiamonds.png',
+		value: 10
+	},
+	{
+		cardView: './img/kingdiamonds.png',
+		value: 10
 	}
-	// {
-	// 	cardView: './img/tendiamonds.png',
-	// 	value: 10
-	// },
-	// {
-	// 	cardView: './img/jackdiamonds.png',
-	// 	value: 10
-	// },
-	// {
-	// 	cardView: './img/queendiamonds.png',
-	// 	value: 10
-	// },
-	// {
-	// 	cardView: './img/kingdiamonds.png',
-	// 	value: 10
-	// }
 ];
 
 const scoreShowResult = {
@@ -228,17 +228,17 @@ const scoreShowResult = {
 	pushGame: 'Push!'
 };
 const modalDecision = [ 'busted', 'winner' ];
+const reducer = (p, c) => p + c;
 
 let newP = document.createElement('p');
 let newD = document.createElement('p');
 
 let total = 0;
 let dealerT = 0;
-let gameOn = false;
-let gameLive = true;
 let dealerShow = [];
 let playerShow = [];
-let splitShow = [];
+let dealerSumTotal = [];
+let playerSumTotal = [];
 
 hit.disabled = true;
 hit.classList.toggle('invisiblebtn');
@@ -271,18 +271,20 @@ playerHand = () => {
 	let a = randomNum(deck);
 	let b = deck.splice(a, 1);
 	playerShow.push(b);
+	playerSumTotal.push(playerShow.slice(-1)[0][0].value);
 };
 
 dealerHand = () => {
 	let a = randomNum(deck);
 	let b = deck.splice(a, 1);
 	dealerShow.push(b);
+	dealerSumTotal.push(dealerShow.slice(-1)[0][0].value);
 };
 
 dealerCard = () => {
 	dealerHand();
 	newImgDealer();
-	totalSumDealer(); //wrong value, after an Ace transform to a value = 1 (needs to be fix)
+	totalSumDealer();
 	dealerT = Number(newD.innerText);
 	if (dealerT >= 17 && dealerT <= 21) {
 		if (dealerT > total) {
@@ -322,15 +324,10 @@ dealerCard = () => {
 			fold.classList.toggle('invisiblebtn');
 		}
 	} else if (dealerT > 21) {
-		let newArray = [];
 		const test = (e) => e > 10;
-		for (let i = 0; i < dealerShow.length; i++) {
-			newArray.push(dealerShow[i][0].value);
-		}
-		if (newArray.includes(11)) {
-			console.log(newArray.findIndex(test));
-			newArray.splice(Number(newArray.findIndex(test)), 1, Number(1));
-			console.log(newArray);
+		if (dealerSumTotal.includes(11)) {
+			dealerSumTotal.splice(Number(dealerSumTotal.findIndex(test)), 1, Number(1));
+			console.log(`Dealer: ${dealerSumTotal}`); // test purpose
 			dealerT = Number(dealerT) - 10;
 			newD.innerText = dealerT;
 			if (dealerT > 21) {
@@ -389,19 +386,12 @@ shuffle = () => {
 };
 
 totalSumPlayer = () => {
-	let playerSum = 0;
-	for (let i = 0; i < playerShow.length; i++) {
-		playerSum += playerShow[i][0].value;
-		newP.innerText = playerSum;
-	}
+	newP.innerText = playerSumTotal.reduce(reducer);
+	console.log(playerSumTotal.reduce(reducer));
 };
 
 totalSumDealer = () => {
-	let dealerSum = 0;
-	for (let i = 0; i < dealerShow.length; i++) {
-		dealerSum += dealerShow[i][0].value;
-		newD.innerText = dealerSum;
-	}
+	newD.innerText = dealerSumTotal.reduce(reducer);
 };
 
 removeChildPlayer = () => {
@@ -418,15 +408,14 @@ removeChildDealer = () => {
 deckReset = () => {
 	removeChildDealer();
 	removeChildPlayer();
-	dealerSum = 0;
-	playerSum = 0;
+	dealerSumTotal = [];
+	playerSumTotal = [];
 	dealerTotal.innerText = '';
 	playerTotal.innerText = '';
 };
 // new game button
 newGame.addEventListener('click', () => {
 	deckReset();
-	gameLive = true;
 	shuffle();
 	dealerShow = [];
 	playerShow = [];
@@ -453,7 +442,7 @@ newGame.addEventListener('click', () => {
 	if (total === 21) {
 		dealerCard();
 	}
-	// Doble Ace opener
+	// Doble Ace opener (Needs fix to new PlayerSumTotal Version)
 	if (total > 21) {
 		let newArray = [];
 		const test = (e) => e > 10;
@@ -479,50 +468,23 @@ hit.addEventListener('click', () => {
 		dealerCard();
 	}
 	if (total > 21) {
-		let newArray = [];
 		const test = (e) => e > 10;
-		for (let i = 0; i < playerShow.length; i++) {
-			newArray.push(playerShow[i][0].value);
-			console.log(newArray);
-		}
-		//This needs a better logic (Not a good practice). Not split system.
-		if (newArray.includes(11)) {
-			console.log(newArray.findIndex(test));
-			newArray.splice(Number(newArray.findIndex(test)), 1, Number(1));
-			console.log(newArray);
+		if (playerSumTotal.includes(11)) {
+			playerSumTotal.splice(Number(playerSumTotal.findIndex(test)), 1, Number(1));
+			console.log(`Player: ${playerSumTotal}`); // test purpose
 			total = Number(total) - 10;
 			newP.innerText = total;
-			if (newArray.includes(11)) {
-				console.log(newArray.findIndex(test));
-				newArray.splice(Number(newArray.findIndex(test)), 1, Number(1));
-				console.log(newArray);
-				total = Number(total) - 10;
-				newP.innerText = total;
-				if (newArray.includes(11)) {
-					console.log(newArray.findIndex(test));
-					newArray.splice(Number(newArray.findIndex(test)), 1, Number(1));
-					console.log(newArray);
-					total = Number(total) - 10;
-					newP.innerText = total;
-					if (newArray.includes(11)) {
-						console.log(newArray.findIndex(test));
-						newArray.splice(Number(newArray.findIndex(test)), 1, Number(1));
-						console.log(newArray);
-						total = Number(total) - 10;
-						newP.innerText = total;
-					} else if (total > 21) {
-						console.log(scoreShowResult.lose);
-						hit.disabled = true;
-						hit.classList.toggle('invisiblebtn');
-						stay.disabled = true;
-						stay.classList.toggle('invisiblebtn');
-						fold.disabled = false;
-						fold.classList.toggle('invisiblebtn');
-						newGame.disabled = false;
-						newGame.classList.toggle('invisiblebtn');
-						timeOut(modalDecision[0], scoreShowResult.lose);
-					}
-				}
+			if (total > 21) {
+				console.log(scoreShowResult.lose);
+				hit.disabled = true;
+				hit.classList.toggle('invisiblebtn');
+				stay.disabled = true;
+				stay.classList.toggle('invisiblebtn');
+				fold.disabled = false;
+				fold.classList.toggle('invisiblebtn');
+				newGame.disabled = false;
+				newGame.classList.toggle('invisiblebtn');
+				timeOut(modalDecision[0], scoreShowResult.lose);
 			}
 		}
 		if (total > 21) {
@@ -546,6 +508,9 @@ stay.addEventListener('click', () => {
 // fold button
 fold.addEventListener('click', () => {
 	deckReset();
+	shuffle();
+	dealerShow = [];
+	playerShow = [];
 	hit.disabled = true;
 	hit.classList.toggle('invisiblebtn');
 	stay.disabled = true;
