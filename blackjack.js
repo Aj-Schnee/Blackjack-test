@@ -387,7 +387,6 @@ shuffle = () => {
 
 totalSumPlayer = () => {
 	newP.innerText = playerSumTotal.reduce(reducer);
-	console.log(playerSumTotal.reduce(reducer));
 };
 
 totalSumDealer = () => {
