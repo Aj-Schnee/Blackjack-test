@@ -330,7 +330,10 @@ dealerCard = () => {
 			dealerT = Number(dealerT) - 10;
 			newD.innerText = dealerT;
 			if (dealerT > 21) {
+<<<<<<< HEAD
 				timeOut(modalDecision[0], scoreShowResult.houseB);
+=======
+>>>>>>> b794f4379adb711511148ce5da8d07d873a76736
 				hit.disabled = true;
 				hit.classList.toggle('invisiblebtn');
 				stay.disabled = true;
@@ -342,7 +345,12 @@ dealerCard = () => {
 			} else {
 				dealerCard();
 			}
+<<<<<<< HEAD
 		} else if (dealerT > 21) {
+=======
+		}
+		if (dealerT > 21) {
+>>>>>>> b794f4379adb711511148ce5da8d07d873a76736
 			hit.disabled = true;
 			hit.classList.toggle('invisiblebtn');
 			stay.disabled = true;
