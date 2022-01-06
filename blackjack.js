@@ -289,7 +289,6 @@ dealerCard = () => {
 	if (dealerT >= 17 && dealerT <= 21) {
 		if (dealerT > total) {
 			//house wins
-			timeOut(modalDecision[0], scoreShowResult.house);
 			newGame.disabled = false;
 			newGame.classList.toggle('invisiblebtn');
 			hit.disabled = true;
@@ -298,10 +297,10 @@ dealerCard = () => {
 			stay.classList.toggle('invisiblebtn');
 			fold.disabled = true;
 			fold.classList.toggle('invisiblebtn');
+			timeOut(modalDecision[0], scoreShowResult.house);
 		}
 		if (dealerT === total) {
 			//Push
-			timeOut(modalDecision[0], scoreShowResult.pushGame);
 			newGame.disabled = false;
 			newGame.classList.toggle('invisiblebtn');
 			hit.disabled = true;
@@ -310,10 +309,10 @@ dealerCard = () => {
 			stay.classList.toggle('invisiblebtn');
 			fold.disabled = true;
 			fold.classList.toggle('invisiblebtn');
+			timeOut(modalDecision[0], scoreShowResult.pushGame);
 		}
 		if (total > dealerT) {
 			//player wins
-			timeOut(modalDecision[1], scoreShowResult.win);
 			newGame.disabled = false;
 			newGame.classList.toggle('invisiblebtn');
 			hit.disabled = true;
@@ -322,6 +321,7 @@ dealerCard = () => {
 			stay.classList.toggle('invisiblebtn');
 			fold.disabled = true;
 			fold.classList.toggle('invisiblebtn');
+			timeOut(modalDecision[1], scoreShowResult.win);
 		}
 	} else if (dealerT > 21) {
 		const test = (e) => e > 10;
@@ -338,6 +338,7 @@ dealerCard = () => {
 				fold.classList.toggle('invisiblebtn');
 				newGame.disabled = false;
 				newGame.classList.toggle('invisiblebtn');
+				timeOut(modalDecision[0], scoreShowResult.houseB);
 			} else {
 				dealerCard();
 			}
@@ -483,7 +484,7 @@ hit.addEventListener('click', () => {
 			hit.classList.toggle('invisiblebtn');
 			stay.disabled = true;
 			stay.classList.toggle('invisiblebtn');
-			fold.disabled = false;
+			fold.disabled = true;
 			fold.classList.toggle('invisiblebtn');
 			newGame.disabled = false;
 			newGame.classList.toggle('invisiblebtn');
