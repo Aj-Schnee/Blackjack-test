@@ -260,7 +260,7 @@ timeOut = (string, object) => {
 	setTimeout(() => {
 		modalnote.classList.toggle(string);
 		newModal.style.display = 'none';
-	}, 4000);
+	}, 3000);
 };
 randomNum = (arr) => {
 	const a = Math.floor(Math.random() * arr.length);
@@ -313,7 +313,7 @@ dealerCard = () => {
 		}
 		if (total > dealerT) {
 			//player wins
-			timeOut(modalDecision[0], scoreShowResult.win);
+			timeOut(modalDecision[1], scoreShowResult.win);
 			newGame.disabled = false;
 			newGame.classList.toggle('invisiblebtn');
 			hit.disabled = true;
@@ -327,11 +327,10 @@ dealerCard = () => {
 		const test = (e) => e > 10;
 		if (dealerSumTotal.includes(11)) {
 			dealerSumTotal.splice(Number(dealerSumTotal.findIndex(test)), 1, Number(1));
-			console.log(`Dealer: ${dealerSumTotal}`); // test purpose
 			dealerT = Number(dealerT) - 10;
 			newD.innerText = dealerT;
 			if (dealerT > 21) {
-				console.log(scoreShowResult.houseB);
+				timeOut(modalDecision[0], scoreShowResult.houseB);
 				hit.disabled = true;
 				hit.classList.toggle('invisiblebtn');
 				stay.disabled = true;
@@ -340,13 +339,10 @@ dealerCard = () => {
 				fold.classList.toggle('invisiblebtn');
 				newGame.disabled = false;
 				newGame.classList.toggle('invisiblebtn');
-				timeOut(modalDecision[0], scoreShowResult.houseB);
 			} else {
 				dealerCard();
 			}
-		}
-		if (dealerT > 21) {
-			console.log(scoreShowResult.houseB);
+		} else if (dealerT > 21) {
 			hit.disabled = true;
 			hit.classList.toggle('invisiblebtn');
 			stay.disabled = true;
@@ -449,9 +445,7 @@ newGame.addEventListener('click', () => {
 			newArray.push(playerShow[i][0].value);
 		}
 		if (newArray.includes(11)) {
-			console.log(newArray.findIndex(test));
 			newArray.splice(Number(newArray.findIndex(test)), 1, Number(1));
-			console.log(newArray);
 			total = Number(total) - 10;
 			newP.innerText = total;
 		}
@@ -470,11 +464,9 @@ hit.addEventListener('click', () => {
 		const test = (e) => e > 10;
 		if (playerSumTotal.includes(11)) {
 			playerSumTotal.splice(Number(playerSumTotal.findIndex(test)), 1, Number(1));
-			console.log(`Player: ${playerSumTotal}`); // test purpose
 			total = Number(total) - 10;
 			newP.innerText = total;
 			if (total > 21) {
-				console.log(scoreShowResult.lose);
 				hit.disabled = true;
 				hit.classList.toggle('invisiblebtn');
 				stay.disabled = true;
@@ -487,7 +479,6 @@ hit.addEventListener('click', () => {
 			}
 		}
 		if (total > 21) {
-			console.log(scoreShowResult.lose);
 			hit.disabled = true;
 			hit.classList.toggle('invisiblebtn');
 			stay.disabled = true;

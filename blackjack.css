@@ -11,28 +11,54 @@ body {
 }
 
 .busted {
-	transform: rotate(0deg);
-	animation: rotate 4s;
-	animation-timing-function: linear;
+	animation: rotate 2.8s;
+	animation-timing-function: ease-in-out;
 }
 @keyframes rotate {
 	0% {
 		transform: rotate(0deg);
 	}
-	20% {
+	15% {
 		transform: rotate(10deg);
 	}
-	40% {
+	30% {
 		transform: rotate(-10deg);
 	}
-	60% {
+	45% {
 		transform: rotate(10deg);
 	}
-	80% {
+	60% {
+		transform: rotate(-10deg);
+	}
+	75% {
+		transform: rotate(10deg);
+	}
+	90% {
 		transform: rotate(-10deg);
 	}
 	100% {
 		transform: rotate(0deg);
+	}
+}
+.winner {
+	animation: anime 2.8s;
+	animation-timing-function: linear;
+}
+@keyframes anime {
+	0% {
+		transform: rotate(30deg);
+	}
+	25% {
+		transform: scale(0.3, 0.3);
+	}
+	50% {
+		transform: scale(0.5, 0.5);
+	}
+	75% {
+		transform: scale(0.8, 0.8);
+	}
+	100% {
+		transform: scale(1, 1);
 	}
 }
 
